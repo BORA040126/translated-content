@@ -1,6 +1,8 @@
 ---
-title: 문자열 제대로 다루기
+title: 유용한 문자열 메서드
 slug: Learn/JavaScript/First_steps/Useful_string_methods
+l10n:
+  sourceCommit: 8d0cbeacdc1872f7e4d966177151585c58fb879e
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/First_steps/Strings", "Learn/JavaScript/First_steps/Arrays", "Learn/JavaScript/First_steps")}}
@@ -26,7 +28,7 @@ slug: Learn/JavaScript/First_steps/Useful_string_methods
   </tbody>
 </table>
 
-## Strings as objects
+## 객체로서의 문자
 
 이전에 말했지만, 다시 말하면 - JavaScript의 모든 것이 객체입니다. 문자열을 만들 때, 예를 들면
 
@@ -34,11 +36,11 @@ slug: Learn/JavaScript/First_steps/Useful_string_methods
 var string = "This is my string";
 ```
 
-변수가 문자열 객체 인스턴스되면, 결과적으로 수많은 속성과 메서드가 사용 가능하게 됩니다. <a href="/ko/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> 객체 페이지로 이동하여 페이지 측면의 목록을 내려다 보면 이것을 볼 수 있습니다!
+변수가 문자열 객체 인스턴스가 되면, 결과적으로 수많은 속성과 메서드가 사용 가능하게 됩니다. <a href="/ko/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> 객체 페이지로 이동하여 페이지 측면의 목록을 내려다 보면 이것을 볼 수 있습니다!
 
 이제 뇌가 녹기 시작하기 전에, 걱정하지 마십시오! 학습 여행 중에 초기에 대부분을 알 필요가 없습니다. 그러나 여기에서 살펴볼 몇 가지 사항을 자주 사용하게 될 것입니다.
 
-콘솔에 예제를 작성해 보세요. 아래의 한 가지를 제공합니다(새 탭이나 새 창에서 콘솔을 열 수 있고, 브라우저의 개발자 콘솔을 사용할 수도 있습니다).
+[브라우저 개발자 콘솔](/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools)에 예제를 작성해 보세요. 
 
 ### 문자열의 길이 찾기
 
@@ -53,23 +55,23 @@ browserType.length;
 
 ### 특정 문자열 찾기
 
-관련하여, 대괄호 표기법을 이용해서 문자열 안의 문자를 구할 수 있습니다. 대괄호 표기법은 변수명 끝에 대괄호를 포함합니다. 대괄호 안에는 구하고 싶은 문자의 숫자를 포함시키면 되며, 예를 들어 아래의 경우 첫 번째 문자를 구할 수 있습니다:
+관련하여, 대괄호 표기법을 이용해서 문자열 안의 문자를 구할 수 있습니다. 대괄호 표기법은 변수명 끝에 대괄호를 포함합니다. 대괄호 안에는 구하고 싶은 문자의 숫자를 포함시키면 되며, 예를 들어 아래의 경우 첫 번째 문자를 구할 수 있습니다.
 
 ```js
 browserType[0];
 ```
 
-컴퓨터는 1이 아니라 0부터 숫자를 셉니다! 문자열의 마지막 문자를 구하기 위해서, 우리는 다음 코드를 사용할 수 있으며, 기술적인 `length` 프로퍼티과 같이 사용하면 아래와 같습니다:
+기억하세요. 컴퓨터는 1이 아니라 0부터 숫자를 셉니다! 문자열의 마지막 문자를 구하기 위해서, 우리는 다음 코드를 사용할 수 있으며, 기술적인 `length` 프로퍼티과 같이 사용하면 아래와 같습니다.
 
 ```js
 browserType[browserType.length - 1];
 ```
 
-"mozilla"는 7글자이지만, 숫자는 0부터 시작하기 때문에 글자의 위치는 6입니다. 그렇기 때문에 `length-1`을 사용합니다. 예를 들어, 여러 문자열 중 첫 번째 문자를 찾아 알파벳순으로 정렬해야 할 경우에 사용할 수 있습니다.
+"mozilla"는 7글자이지만, 숫자는 0부터 시작하기 때문에 글자의 위치는 6입니다. 그렇기 때문에 마지막 글자를 가져오기 위해 `length-1`을 사용합니다. 
 
 ### 문자열 내부의 하위 문자열 찾기 및 추출
 
-1. 때때로 큰 문자열 안의 작은 문자열(우리는 이것을 하위 문자열이라고 이야기 한다.)을 찾고 싶을 것입니다. 이 작업은 {{jsxref("String.prototype.indexOf()", "indexOf()")}}를 사용하여 완료할 수 있습니다, which takes a single {{glossary("parameter")}} — 찾기 원하는 하위 문자열을 찾을 수 있습니다. 시도해 봅시다:
+1. 때때로 큰 문자열 안의 작은 문자열(우리는 이것을 하위 문자열이라고 이야기 한다.)을 찾고 싶을 것입니다. 이 작업은 {{jsxref("String.prototype.indexOf()", "indexOf()")}}를 사용하여 완료할 수 있습니다, which takes a single {{glossary("parameter")}} — 찾기 원하는 하위 문자열을 찾을 수 있습니다. 시도해 봅시다.
 
    ```js
    browserType.indexOf("zilla");
